@@ -5,13 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "args": [
-                "--timeout",
-                "10000",
-                "--colors",
-                "${workspaceFolder}/test",
-                "--exit"
-            ],
+            
             "internalConsoleOptions": "openOnSessionStart",
             "name": "Mocha Tests",
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
@@ -22,13 +16,19 @@
             "type": "node"
         },
         {
+            "args": [
+                "-r dotenv/config"
+            ],
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/server.js"
+            "program": "${workspaceFolder}/server.js",
+            "envFile": "${workspaceFolder}/.env", // add this line
+
         }
+        
     ]
 }
