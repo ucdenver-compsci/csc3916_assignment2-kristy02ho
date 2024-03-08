@@ -128,7 +128,7 @@ router.route('/testcollection')
         getJSONObjectForMovieRequirement(req);
         o.status = 200
         o.message = 'movie saved';
-        res.json(o);
+        res.json({status: 200, message: 'movie saved', headers: req.headers, query: req.message, env: env.UNIQUE_KEY});
     })
     .delete(authController.isAuthenticated, (req, res) => {
         console.log(req.body);
