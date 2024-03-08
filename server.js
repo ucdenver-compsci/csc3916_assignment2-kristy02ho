@@ -106,7 +106,13 @@ router.route('/movies')
     o.status = 200;
     o.message = "movie updated";
     res.json(o);
-});
+})
+.all((req, res) => {
+    // Any other HTTP Method
+    // Returns a message stating that the HTTP method is unsupported.
+    res.status(405).send({ message: 'HTTP method not supported.' });
+})
+;
 
 router.route('/testcollection')
     .get((req, res) => {
